@@ -40,7 +40,7 @@ RUN mkdir -p /app
 WORKDIR /app
 
 COPY package.json ./
-RUN npm i
+RUN npm i --registry=https://mirrors.cloud.tencent.com/npm/
 
 COPY *.js ./
 COPY src/ ./src/
