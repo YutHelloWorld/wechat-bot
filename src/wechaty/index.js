@@ -52,10 +52,11 @@ async function onMessage(msg) {
 // 初始化机器人
 export const bot = WechatyBuilder.build({
   name: 'WechatEveryDay',
-  // puppet: 'wechaty-puppet-wechat4u', // 如果有token，记得更换对应的puppet
-  puppet: 'wechaty-puppet-wechat', // 如果 wechaty-puppet-wechat 存在问题，也可以尝试使用上面的 wechaty-puppet-wechat4u ，记得安装 wechaty-puppet-wechat4u
+  puppet: 'wechaty-puppet-wechat4u', // 如果有token，记得更换对应的puppet
+  // puppet: 'wechaty-puppet-wechat', // 如果 wechaty-puppet-wechat 存在问题，也可以尝试使用上面的 wechaty-puppet-wechat4u ，记得安装 wechaty-puppet-wechat4u
   puppetOptions: {
     uos: true,
+    endpoint: "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
   },
 })
 
