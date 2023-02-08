@@ -1,5 +1,5 @@
-// import { getChatGPTReply as getReply } from '../chatgpt/index.js'
-import { getOpenAiReply as getReply } from '../openai/index.js'
+import { getChatGPTReply as getReply } from '../chatgpt/index.js'
+// import { getOpenAiReply as getReply } from '../openai/index.js'
 import { botName, roomWhiteList, aliasWhiteList } from '../../config.js'
 
 /**
@@ -26,12 +26,12 @@ export async function defaultMessage(msg, bot) {
     try {
       // 区分群聊和私聊
       if (isRoom && room) {
-        await room.say(await getReply(content.replace(`${botName}`, '')))
+        await room.say(await getReply(contact.id, content.replace(`${botName}`, '')))
         return
       }
       // 私人聊天，白名单内的直接发送
       if (isAlias && !room) {
-        await contact.say(await getReply(content))
+        await contact.say(await getReply(contact.id, content))
       }
     } catch (e) {
       console.error(e)

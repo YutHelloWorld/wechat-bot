@@ -9,7 +9,8 @@ const configuration = new Configuration({
 })
 const openai = new OpenAIApi(configuration)
 
-export async function getOpenAiReply(prompt) {
+export async function getOpenAiReply(talkerId, prompt) {
+  console.log('/ talkerId', talkerId)
   console.log('🚀🚀🚀 / prompt', prompt)
   const response = await openai.createCompletion({
     model: 'text-davinci-003',
