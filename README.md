@@ -78,4 +78,7 @@ npm run dev
 $ docker build . -t wechat-bot
 
 $ docker run -d --rm --name wechat-bot -v $(pwd)/config.js:/app/config.js -v $(pwd)/.env:/app/.env wechat-bot
+
+# 查看日志，扫码登录
+$ docker logs -f <container id>
 ```
