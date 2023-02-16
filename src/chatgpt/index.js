@@ -1,4 +1,4 @@
-import { ChatGPTAPI } from 'chatgpt'
+import 'isomorphic-fetch'
 import dotenv from 'dotenv'
 
 const env = dotenv.config().parsed // 环境参数
@@ -8,11 +8,16 @@ const delay = (ms) => {
     setTimeout(() => resolve(true), ms)
   })
 }
+let api
+  // To use ESM in CommonJS, you can use a dynamic import
+;(async () => {
+  const { ChatGPTAPI } = await import('chatgpt')
 
-const api = new ChatGPTAPI({
-  apiKey: env.OPENAI_API_KEY,
-  debug: false,
-})
+  api = new ChatGPTAPI({
+    apiKey: env.OPENAI_API_KEY,
+    debug: false,
+  })
+})()
 
 const ConversationPool = {}
 const RetryPool = {}
